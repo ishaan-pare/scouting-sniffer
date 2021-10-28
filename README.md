@@ -1,2 +1,2 @@
 # scouting-sniffer
-Detects network scan by analyzing RX packets (Received Packets) .
+Detects network scan by analyzing RX packets (Received Packets).
