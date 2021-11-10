@@ -1,0 +1,1 @@
+POWERSHELL_CMD = "netstat -s"
