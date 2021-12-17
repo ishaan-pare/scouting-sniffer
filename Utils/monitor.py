@@ -3,7 +3,7 @@
     
     Task    -   execute "netstat -s" command which gives all the network statistics 
                 and piped the output of the command to the variables in the form of 
-                lines
+                 array of lines
     module contains     -   execute()
                             *this execute powershell command and return the whole
                             output into the array of lines 
