@@ -1,8 +1,8 @@
+from os import read
 from matplotlib.figure import Figure
 from Utils import analyze,process,global_constants
 import threading
-import multiprocessing
-import random
+import datetime
 import tkinter as tk
 from tkinter.constants import HORIZONTAL
 from tkinter import Button, messagebox
@@ -162,10 +162,15 @@ class FApp(tk.Frame):
         def start_protocols():
             if analyze.__Check__():
                 messagebox.showerror("Error", "You caught!!!!")
-                with open("mytextLogs.txt") as f:
+                with open("mytextLogs.txt", 'w') as f:
                     #to write in log file I will decide it later 
-                    pass
-                controller.show_frame(Page2)
+                    l = ["Someone just scanned your computer\n"]
+                    l.append("Date and time :"+str(datetime.datetime.now().strftime("%d/%m/%y %H:%M:%S"))+'\n')
+                    l.append("Packet current frequency rises the given threshold\n")
+                    f.writelines(l)
+                    f.close()
+                controller.show_frame(Page3)
+                
 
         def start():
 
@@ -254,9 +259,7 @@ class FApp(tk.Frame):
 
 # second window frame page1
 class Page1(tk.Frame):
-    
     def __init__(self, parent, controller):
-        
         tk.Frame.__init__(self, parent)
         self.config(background="#222831")
 
@@ -341,12 +344,15 @@ class Page3(tk.Frame):
         LabelP31["font"] = tkFont.Font(size=20)
         LabelP31["fg"] = "#EEEEEE"
         LabelP31.place(x=220,y=10)
-        
+
         a = open(file="D:\pmmp\scouting-sniffer\mytextLogs.txt")
+            
         b = a.read()
         textArea = tk.Text(self)
         textArea.insert(tk.END,b)
         textArea.place(x=45,y=50,height=400,width=500)
+
+       
 
         ButtonP3 = tk.Button(self,activebackground="#08D9D6",activeforeground="#EEEEEE")
         ButtonP3["text"] = "Back"
@@ -357,6 +363,9 @@ class Page3(tk.Frame):
         ButtonP3.place(x=20,y=460,width=70,height=25)
 
         changeOnHover(ButtonP3,"#08D9D6","#00ADB5")
+
+    def updation(self):
+        self.update()
 
         
 
@@ -442,6 +451,7 @@ class Page4(tk.Frame):
 
 # Driver Code
 app = App()
+app.title("scouting-sniffer")
 ani = animation.FuncAnimation(f,animate,interval=1000)
 width=600
 height=500
