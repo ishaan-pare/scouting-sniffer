@@ -8,7 +8,7 @@ Not only computers but this proposal can extend towards more wider range of devi
 Also after detecting the malicious activity our program guides the user what to do, for instance it will instruct the user to safeguard their information
 
 ## Installation
-step1 - clone the repository to your local computer
-step2 - open terminal/powershell
-step3 - move to the folder where you have cloned the repo
-step4 - type "python main.py" - it will start the program and a window will appear
+step1 - clone the repository to your local computer <br/>
+step2 - open terminal/powershell <br/>
+step3 - move to the folder where you have cloned the repo <br/>
+step4 - type "python main.py" - it will start the program and a window will appear <br/>
